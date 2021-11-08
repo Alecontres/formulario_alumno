@@ -20,14 +20,14 @@
             $dni = isset($_POST['dni'])? $_POST['dni']:"";
             $email = isset($_POST['email'])? $_POST['email']:"";
             $modulos = isset($_POST['modulos'])? $_POST['modulos']:"";
-            
+
 
             //--------------------------
             //  Validamos el formulario
             //--------------------------
             //Nombre
             if(!validarTexto($nombre)){
-                $errores[] = "El nombre no puede estar vacío";
+                $errores[] = "El nombre esta vacío";
             }
             //Apellidos
             if(!validarTexto($apellidos)){
@@ -53,7 +53,7 @@
         }
 
     ?>
-   
+
     <!-------Mostramos errores------->
     <?php
     if(isset($errores)){
@@ -68,7 +68,7 @@
     <h3>---Datos del alumno---</h3>
 
     <form action="" method="POST">
-        
+
     <!----Campo nombre-->
         <p>Nombre: <input type="text" name="nombre" value="<?php
                 if(empty($_POST['nombre'])){
@@ -78,7 +78,7 @@
                 }
             ?>">
         </p>
-        
+
         <!----Campo apellidos--->
         <p>Apellidos: <input type="text" name="apellidos" value="<?php
                 if(empty($_POST['apellidos'])){
@@ -121,7 +121,7 @@
 
         <!----Campo módulos--->
         <p>Módulos que cursa: </p>
-            
+
         <p>
             <input type="checkbox" name="modulos[]" value="DWEC"
                 <?php
@@ -157,10 +157,10 @@
                          echo 'checked="checked"';
                     }
                ?>
-            /> 
+            />
             EIE
         </p>
-        
+
         <!---Botón---->
         <p><input type="submit" name= "enviar" value="Enviar"></p>
 
@@ -181,7 +181,7 @@
     }
     //Método para validar dni
     function validarDni($texto){
-        
+
         if(preg_match("|\d{8}[A-Z]$|", $texto)){
             return true;
         } else {
