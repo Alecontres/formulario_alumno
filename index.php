@@ -27,7 +27,6 @@
             //--------------------------
             //Nombre
             if(!validarTexto($nombre)){
-                $errores[] = "El nombre esta vacío mas vacio todavia";
             }
             //Apellidos
             if(!validarTexto($apellidos)){
